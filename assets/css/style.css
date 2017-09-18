@@ -1,0 +1,25 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+* {
+	border-radius: 0 !important;
+}
+
+#display-prod{
+	margin: auto;
+}
+
+#prod-col1 {
+	margin-top: 50px;
+}
+
+#prod-col2 {
+	margin-top: 30px;
+}
+
+@media screen and (max-width: 447px) {
+	#navigation-prod {
+		margin-top: -40px;
+	}
+}

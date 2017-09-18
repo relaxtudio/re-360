@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="360 Product Display">
+		<meta name="author" content="relaxtudio">
+		
+		<title>relaxtudio 360 Product Display</title>
+		
+		<!--font-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+
+		<!--core CSS-->
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/threesixty.css">
+		<link rel="stylesheet" href="assets/css/font-awesome.css">
+		
+		<!--JS-->
+		<script type="text/javascript" src="assets/js/jquery.js"></script>
+		<script type="text/javascript" src="assets/js/threesixty.js"></script>
+		<script type="text/javascript" src="assets/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="assets/plugins/threesixty.fullscreen.js"></script>
+		<script type="text/javascript">
+			window.onload = init;
+
+			var car;
+			function init(){
+
+			    car = $('.car').ThreeSixty({
+			        totalFrames: 52, // Total no. of image you have for 360 slider
+			        endFrame: 52, // end frame for the auto spin animation
+			        currentFrame: 1, // This the start frame for auto spin
+			        imgList: '.threesixty_images', // selector for image list
+			        progress: '.spinner', // selector to show the loading progress
+			        imagePath:'cars/', // path of the image assets
+			        filePrefix: '', // file prefix if any
+			        ext: '.png', // extention for the assets
+			        height: 250,
+			        width: '100%',
+			        navigation: false
+			    });
+
+			    $('.custom_previous').bind('click', function(e) {
+			      car.previous();
+			    });
+
+			    $('.custom_next').bind('click', function(e) {
+			      car.next();
+			    });
+
+			    $('.custom_play').bind('click', function(e) {
+			      car.play();
+			    });
+
+			    $('.custom_stop').bind('click', function(e) {
+			      car.stop();
+			    });
+
+			}
+
+		</script>
+	</head>
+	<body>
+		<section id="display-prod" class="container">
+			<div class="row">
+				<div id="prod-col1" class="col-md-6">
+					<div id="prod-toggle">
+						<a href="#exterior" class="btn btn-primary"><i class="fa fa-car"></i> Exterior</a>
+						<a href="#interior" class="btn btn-default"><img src="assets/images/360_icon.png" width="30"> Interior</a>
+					</div>
+					<br></br>
+					<div>
+						<div class="threesixty car">
+						    <div class="spinner">
+						        <span>0%</span>
+						    </div>
+						    <ol class="threesixty_images"></ol>
+						</div>
+						<div id="navigation-prod" class="pull-right">
+							<a class="btn btn-info custom_previous"><i class="fa fa-backward"></i></a>
+							<a class="btn btn-success custom_play"><i class="fa fa-play"></i></a>
+						    <a class="btn btn-warning custom_stop"><i class="fa fa-pause"></i></a>
+						    <a class="btn btn-info custom_next"><i class="fa fa-forward"></i></a>
+						</div>
+					</div>
+				</div>
+				<div id="prod-col2" class="col-md-6">
+					<div id="detail-prod">
+						<h3>Honda Civic 2017</h3>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
